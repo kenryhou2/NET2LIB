@@ -124,8 +124,16 @@ def init():
 
 	net_file_path = tk.StringVar()
 	#drag and drop logo
-	path = "src/dragndroplogo.png"
-	img = Image.open(path)
+	path_to_help = 'dragndroplogo.png'
+	try:
+		bundle_dir = getattr(sys, '_MEIPASS', os.path.abspath(os.path.dirname(__file__)))
+		path_to_help = os.path.abspath(os.path.join(bundle_dir,'dragndroplogo.png'))
+	#path = 'dragndroplogo.png'
+	except:
+		pass
+	else:
+		pass
+	img = Image.open(path_to_help)
 	resize_img = img.resize((150, 220), Image.ANTIALIAS)
 	img = ImageTk.PhotoImage(resize_img)
 	drag_drop_img = tk.Label(dnd_panel, image = img)
@@ -342,13 +350,14 @@ def CreateToolTip(widget, text):
     widget.bind('<Leave>', leave)
 
 def drop_inside_dnd_box(event):
-	dropped_file_path = event.data[1:len(event.data)-1]
+	#dropped_file_path = event.data[1:len(event.data)-1]
+	dropped_file_path = event.data.replace("{","").replace("}","")
 	#print(dropped_file_path)
 	#check for net file
 	extension = dropped_file_path[len(dropped_file_path)-4:len(dropped_file_path)]
 	#print(extension)
 	net_file_path.set("")
-	if extension != ".net":
+	if extension != ".net" and extension != ".NET":
 		display_msg("Please use file with extension \'.net\'","red","warning")
 	else:
 		net_file_path.set(dropped_file_path)

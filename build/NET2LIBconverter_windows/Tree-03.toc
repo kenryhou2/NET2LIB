@@ -1,0 +1,117 @@
+('c:\\users\\henry '
+ 'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg',
+ None,
+ {'*.py', '*.pyd', '*.pyw', '*.pyc', 'EGG-INFO', '*.cp38-win_amd64.pyd'},
+ 'DATA',
+ [('tkinterdnd2\\tkdnd\\win64\\libtkdnd2.9.2.dll',
+   'c:\\users\\henry '
+   'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg\\tkinterdnd2\\tkdnd\\win64\\libtkdnd2.9.2.dll',
+   'DATA'),
+  ('tkinterdnd2\\tkdnd\\win64\\pkgIndex.tcl',
+   'c:\\users\\henry '
+   'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg\\tkinterdnd2\\tkdnd\\win64\\pkgIndex.tcl',
+   'DATA'),
+  ('tkinterdnd2\\tkdnd\\win64\\tkdnd.tcl',
+   'c:\\users\\henry '
+   'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg\\tkinterdnd2\\tkdnd\\win64\\tkdnd.tcl',
+   'DATA'),
+  ('tkinterdnd2\\tkdnd\\win64\\tkdnd2.9.2.lib',
+   'c:\\users\\henry '
+   'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg\\tkinterdnd2\\tkdnd\\win64\\tkdnd2.9.2.lib',
+   'DATA'),
+  ('tkinterdnd2\\tkdnd\\win64\\tkdnd_compat.tcl',
+   'c:\\users\\henry '
+   'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg\\tkinterdnd2\\tkdnd\\win64\\tkdnd_compat.tcl',
+   'DATA'),
+  ('tkinterdnd2\\tkdnd\\win64\\tkdnd_generic.tcl',
+   'c:\\users\\henry '
+   'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg\\tkinterdnd2\\tkdnd\\win64\\tkdnd_generic.tcl',
+   'DATA'),
+  ('tkinterdnd2\\tkdnd\\win64\\tkdnd_macosx.tcl',
+   'c:\\users\\henry '
+   'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg\\tkinterdnd2\\tkdnd\\win64\\tkdnd_macosx.tcl',
+   'DATA'),
+  ('tkinterdnd2\\tkdnd\\win64\\tkdnd_unix.tcl',
+   'c:\\users\\henry '
+   'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg\\tkinterdnd2\\tkdnd\\win64\\tkdnd_unix.tcl',
+   'DATA'),
+  ('tkinterdnd2\\tkdnd\\win64\\tkdnd_utils.tcl',
+   'c:\\users\\henry '
+   'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg\\tkinterdnd2\\tkdnd\\win64\\tkdnd_utils.tcl',
+   'DATA'),
+  ('tkinterdnd2\\tkdnd\\win64\\tkdnd_windows.tcl',
+   'c:\\users\\henry '
+   'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg\\tkinterdnd2\\tkdnd\\win64\\tkdnd_windows.tcl',
+   'DATA'),
+  ('tkinterdnd2\\tkdnd\\osx64\\libtkdnd2.9.2.dylib',
+   'c:\\users\\henry '
+   'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg\\tkinterdnd2\\tkdnd\\osx64\\libtkdnd2.9.2.dylib',
+   'DATA'),
+  ('tkinterdnd2\\tkdnd\\osx64\\pkgIndex.tcl',
+   'c:\\users\\henry '
+   'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg\\tkinterdnd2\\tkdnd\\osx64\\pkgIndex.tcl',
+   'DATA'),
+  ('tkinterdnd2\\tkdnd\\osx64\\tkdnd.tcl',
+   'c:\\users\\henry '
+   'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg\\tkinterdnd2\\tkdnd\\osx64\\tkdnd.tcl',
+   'DATA'),
+  ('tkinterdnd2\\tkdnd\\osx64\\tkdnd_compat.tcl',
+   'c:\\users\\henry '
+   'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg\\tkinterdnd2\\tkdnd\\osx64\\tkdnd_compat.tcl',
+   'DATA'),
+  ('tkinterdnd2\\tkdnd\\osx64\\tkdnd_generic.tcl',
+   'c:\\users\\henry '
+   'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg\\tkinterdnd2\\tkdnd\\osx64\\tkdnd_generic.tcl',
+   'DATA'),
+  ('tkinterdnd2\\tkdnd\\osx64\\tkdnd_macosx.tcl',
+   'c:\\users\\henry '
+   'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg\\tkinterdnd2\\tkdnd\\osx64\\tkdnd_macosx.tcl',
+   'DATA'),
+  ('tkinterdnd2\\tkdnd\\osx64\\tkdnd_unix.tcl',
+   'c:\\users\\henry '
+   'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg\\tkinterdnd2\\tkdnd\\osx64\\tkdnd_unix.tcl',
+   'DATA'),
+  ('tkinterdnd2\\tkdnd\\osx64\\tkdnd_utils.tcl',
+   'c:\\users\\henry '
+   'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg\\tkinterdnd2\\tkdnd\\osx64\\tkdnd_utils.tcl',
+   'DATA'),
+  ('tkinterdnd2\\tkdnd\\osx64\\tkdnd_windows.tcl',
+   'c:\\users\\henry '
+   'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg\\tkinterdnd2\\tkdnd\\osx64\\tkdnd_windows.tcl',
+   'DATA'),
+  ('tkinterdnd2\\tkdnd\\linux64\\libtkdnd2.9.2.so',
+   'c:\\users\\henry '
+   'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg\\tkinterdnd2\\tkdnd\\linux64\\libtkdnd2.9.2.so',
+   'DATA'),
+  ('tkinterdnd2\\tkdnd\\linux64\\pkgIndex.tcl',
+   'c:\\users\\henry '
+   'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg\\tkinterdnd2\\tkdnd\\linux64\\pkgIndex.tcl',
+   'DATA'),
+  ('tkinterdnd2\\tkdnd\\linux64\\tkdnd.tcl',
+   'c:\\users\\henry '
+   'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg\\tkinterdnd2\\tkdnd\\linux64\\tkdnd.tcl',
+   'DATA'),
+  ('tkinterdnd2\\tkdnd\\linux64\\tkdnd_compat.tcl',
+   'c:\\users\\henry '
+   'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg\\tkinterdnd2\\tkdnd\\linux64\\tkdnd_compat.tcl',
+   'DATA'),
+  ('tkinterdnd2\\tkdnd\\linux64\\tkdnd_generic.tcl',
+   'c:\\users\\henry '
+   'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg\\tkinterdnd2\\tkdnd\\linux64\\tkdnd_generic.tcl',
+   'DATA'),
+  ('tkinterdnd2\\tkdnd\\linux64\\tkdnd_macosx.tcl',
+   'c:\\users\\henry '
+   'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg\\tkinterdnd2\\tkdnd\\linux64\\tkdnd_macosx.tcl',
+   'DATA'),
+  ('tkinterdnd2\\tkdnd\\linux64\\tkdnd_unix.tcl',
+   'c:\\users\\henry '
+   'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg\\tkinterdnd2\\tkdnd\\linux64\\tkdnd_unix.tcl',
+   'DATA'),
+  ('tkinterdnd2\\tkdnd\\linux64\\tkdnd_utils.tcl',
+   'c:\\users\\henry '
+   'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg\\tkinterdnd2\\tkdnd\\linux64\\tkdnd_utils.tcl',
+   'DATA'),
+  ('tkinterdnd2\\tkdnd\\linux64\\tkdnd_windows.tcl',
+   'c:\\users\\henry '
+   'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg\\tkinterdnd2\\tkdnd\\linux64\\tkdnd_windows.tcl',
+   'DATA')])
