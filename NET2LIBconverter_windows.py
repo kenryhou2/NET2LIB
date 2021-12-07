@@ -309,11 +309,11 @@ def convert(pins,subckt_body,subckts):
 	converted_output_str+=".ENDS " + subckt_name_str + "\r\n*$\r\n"
 	converted_output_str += subckts
 	converted_output_b = converted_output_str.encode()
-	converted_file = open(converted_filename,"wb")
+	converted_dir = os.path.split(net_file_path.get())[0]
+	tmp_filepath = str(converted_dir) + "/" + converted_filename
+	converted_file = open(tmp_filepath,"wb")
 	converted_file.write(converted_output_b)
 	converted_file.close()
-	current_dir = os.getcwd()
-	tmp_filepath = str(current_dir) + "\\" + converted_filename
 	display_msg(tmp_filepath,"green","converted")
 	reset()
 
