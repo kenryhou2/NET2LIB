@@ -1,7 +1,7 @@
 ('c:\\users\\henry '
  'kou\\anaconda3\\lib\\site-packages\\tkinterdnd2_pmgagne-0.3.0-py3.8.egg',
  None,
- {'*.py', '*.pyd', '*.pyw', '*.pyc', 'EGG-INFO', '*.cp38-win_amd64.pyd'},
+ {'*.cp38-win_amd64.pyd', '*.pyc', '*.pyw', 'EGG-INFO', '*.py', '*.pyd'},
  'DATA',
  [('tkinterdnd2\\tkdnd\\win64\\libtkdnd2.9.2.dll',
    'c:\\users\\henry '

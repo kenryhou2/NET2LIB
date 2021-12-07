@@ -124,10 +124,10 @@ def init():
 
 	net_file_path = tk.StringVar()
 	#drag and drop logo
-	path_to_help = 'dragndroplogo.png'
+	path_to_help = 'src/dragndroplogo.png'
 	try:
 		bundle_dir = getattr(sys, '_MEIPASS', os.path.abspath(os.path.dirname(__file__)))
-		path_to_help = os.path.abspath(os.path.join(bundle_dir,'dragndroplogo.png'))
+		path_to_help = os.path.abspath(os.path.join(bundle_dir,'src/dragndroplogo.png'))
 	#path = 'dragndroplogo.png'
 	except:
 		pass
@@ -250,7 +250,15 @@ def extract():
 	
 def populate_header():
 	curr_dir = os.getcwd()
-	template_file_path = curr_dir + "\\templates\\ModelHeader_Public Release.txt"
+	template_file_path = curr_dir + "/templates/ModelHeader_Public_Release.txt"
+	try:
+		bundle_dir = getattr(sys, '_MEIPASS', os.path.abspath(os.path.dirname(__file__)))
+		template_file_path = os.path.abspath(os.path.join(bundle_dir,'templates/ModelHeader_Public_Release.txt'))
+	#path = 'dragndroplogo.png'
+	except:
+		pass
+	else:
+		pass
 	template_file = open(template_file_path,"rb")
 	template_file_list =template_file.readlines()
 	header_str = template_file_list[0].decode()
