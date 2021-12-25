@@ -1,5 +1,22 @@
 #!/usr/bin/env python3
+"""
+*****************************************************************************
+* NET2LIBconverter_windows.py - Version 1.0
+* WV/BSR/APPS Internal Tool for SIM2PSPICE effort
+* (C) Copyright 2021 Texas Instruments Incorporated. All rights reserved.
+* TI Selective Dislosure Source Code - Developed by Henry Kou (h-kou@ti.com)
+* Description: 
+* Input PSPICE ".net" file into drag and drop. 
+* Input entries to populate LIB header and convert.
+* Output is PSPICE ".LIB" file in same directory as net input file.
+*****************************************************************************
+* This source code is subject to change without notice. Texas Instruments
+* Incorporated is not responsible for updating this model.
+*****************************************************************************
+Last edited 12/13 11:40AM
+"""
 import tkinter as tk
+from tkinter.constants import X
 from PIL import ImageTk, Image
 from tkinterdnd2 import DND_FILES, TkinterDnD
 import os
@@ -29,19 +46,24 @@ def init():
 	global subckt_name
 	global header_str
 	global subckts_str
+	global notes_tb
+	global window
 	
 	#window setup
 	#window = tk.Tk()
 	window = TkinterDnD.Tk()
-	window.geometry("450x310")
-	window.title('NET2LIB Converter')
+	window.geometry("490x500")
+	window.minsize(490,510)
+	window.title('NET2LIB Converter - WV/BSR/APPS Internal Tool')
 	entry_panel = tk.Frame(window)
 	entry_panel.configure()
 	dnd_panel = tk.Frame(window)
 	button_panel = tk.Frame(window)
 	msg_panel = tk.Frame(window)
 	msg_panel.pack()
-	button_panel.pack(side = tk.BOTTOM)
+	notes_panel = tk.Frame(window)
+	notes_panel.pack(side = tk.BOTTOM, fill = "both")
+	button_panel.pack(side = tk.BOTTOM, fill = "both")
 	entry_panel.pack(side = tk.LEFT)
 	dnd_panel.pack(side = tk.LEFT)
 	
@@ -56,6 +78,11 @@ def init():
 	entry_panel.rowconfigure(5,weight=1)
 	entry_panel.rowconfigure(6,weight=1)
 	entry_panel.rowconfigure(7,weight=1)
+
+	button_panel.columnconfigure(0,weight=1)
+	button_panel.columnconfigure(1,weight=1)
+	button_panel.columnconfigure(2,weight=1)
+
 
 	#entry setup
 	part_label = tk.Label(entry_panel,text="GPN:")
@@ -134,18 +161,50 @@ def init():
 	else:
 		pass
 	img = Image.open(path_to_help)
-	resize_img = img.resize((150, 220), Image.ANTIALIAS)
+	resize_img = img.resize((200, 220), Image.ANTIALIAS)
 	img = ImageTk.PhotoImage(resize_img)
 	drag_drop_img = tk.Label(dnd_panel, image = img)
-	drag_drop_img.pack(side = "bottom", fill = "both")
+	drag_drop_img.pack(fill = "both")
 	CreateToolTip(drag_drop_img, text = 'Drag and drop \'.net\' file here')
 	#drag and drop should extract path
 	drag_drop_img.drop_target_register(DND_FILES)
 	drag_drop_img.dnd_bind("<<Drop>>",drop_inside_dnd_box) #event handler for file drop
 
+	#notes text box
+	scrollb = tk.Scrollbar(notes_panel)
+	#scrollb.pack(side=tk.RIGHT)
+	scrollx = tk.Scrollbar(notes_panel, orient=tk.HORIZONTAL)
+	#scrollx.pack(side=tk.BOTTOM)
+	notes_label = tk.Label(notes_panel, text="Notes:", justify = tk.LEFT)
+	notes_label.pack()
+	notes_tb = tk.Text(notes_panel, height = 10, width =125, xscrollcommand=scrollx.set, yscrollcommand=scrollb.set )
+	scrollb.config(command="yview")
+	scrollx.config(command="xview")
+	scrollb.pack(side=tk.RIGHT, fill=tk.Y)
+	#scrollx.pack(side=tk.BOTTOM,fill=tk.X)
+	notes_tb.pack(ipady=10)
+	
+	#ti logo
+	ti_path = 'src/ti_logo.png'
+	try:
+		bundle_dir1 = getattr(sys, '_MEIPASS', os.path.abspath(os.path.dirname(__file__)))
+		ti_path = os.path.abspath(os.path.join(bundle_dir1,'src/ti_logo.png'))
+	except:
+		pass
+	else:
+		pass
+	img1 = Image.open(ti_path)
+	resize_img1 = img1.resize((116, 35), Image.ANTIALIAS)
+	img1 = ImageTk.PhotoImage(resize_img1)
+	ti_img = tk.Label(button_panel, image = img1, anchor = 'w',justify=tk.LEFT)
+	ti_img.grid(column=0,row=0,padx=0,pady=0,sticky=tk.W)
+	CreateToolTip(ti_img, text = 'Developed by Henry Kou')
+
+	creator = tk.Label(button_panel,text = "V1.0   ", anchor = 'e')
+	creator.grid(column = 2,row = 0, sticky=tk.E)
 	#button
-	button = tk.Button(button_panel,text="Convert",width=10,height=2,bg="blue",fg="yellow",command=handle_submit)
-	button.pack()
+	button = tk.Button(button_panel,text="Convert",width=10,height=2,bg="blue",fg="yellow",command=handle_submit, justify=tk.LEFT)
+	button.grid(column=1,row=0,padx=0,pady=15, sticky=tk.W)
 	window.mainloop()
 	
 
@@ -205,6 +264,7 @@ def extract():
 			#print(net_file_list[i])
 			pinout_flag = net_file_list[i][0:17] #recovers .EXTERNAL OUTPUT
 			subckt_flag = net_file_list[i][0:7] #recovers .subckt
+
 			#extracting subckts
 			if subckt_flag == ".subckt".encode():
 				begin_subckt_parsing = 1
@@ -233,15 +293,14 @@ def extract():
 					else:
 						fin_sub_str += sub_str[h]
 						h+=1
-				subckts_str.set(subckts_str.get() + fin_sub_str + "\r\n.$\r\n")
-			
-			
+				subckts_str.set(subckts_str.get() + fin_sub_str + "\r\n.$\r\n")		
 			#print(pinout_flag)
-			if pinout_flag == ".EXTERNAL OUTPUT ".encode() and begin_subckt_parsing == 0:
-				pinout = net_file_list[i][17:len(net_file_list[i])-2]
-				pinout_list.append(pinout)		
-			if pinout_flag != ".EXTERNAL OUTPUT ".encode() and begin_subckt_parsing == 0:
-				subckt_list.append(net_file_list[i])
+			if begin_subckt_parsing == 0:
+				if pinout_flag == ".EXTERNAL OUTPUT ".encode():
+					pinout = net_file_list[i][17:len(net_file_list[i])-2]
+					pinout_list.append(pinout)		
+				if pinout_flag != ".EXTERNAL OUTPUT ".encode() and net_file_list[i][0:2].decode() != "**" and net_file_list[i][0:2].decode() != "\r\n":
+					subckt_list.append(net_file_list[i])
 		net_file.close()
 		#print(pinout_list)
 		#print(subckt_list)
@@ -289,9 +348,21 @@ def populate_header():
 	modelvsn = model_vsn_entry.get()
 	if model_vsn_entry.get() == "":
 		modelvsn = "N/A"
-	header_str+= "* Part: " + part_entry.get() + "\r\n* Date: " + d1 + "\r\n" + "* Model Type: Average\r\n* Simulator: PSPICE\r\n* Simulator Version: " + simvsn + "\r\n* Datasheet LIT number: " + litnum + "\r\n* EVM Order Number: " + evmorder + "\r\n* EVM User's Guide: " + evmguide + "\r\n* Model Version: " + modelvsn + "\r\n"  
-	for i in range(25,38):
+	header_str+= "* Part: " + part_entry.get() + "\r\n* Date: " + d1 + "\r\n" + "* Model Type: TRANSIENT\r\n* Simulator: PSPICE\r\n* Simulator Version: " + simvsn + "\r\n* Datasheet LIT number: " + litnum + "\r\n* EVM Order Number: " + evmorder + "\r\n* EVM User's Guide: " + evmguide + "\r\n* Model Version: " + modelvsn + "\r\n"  
+	for i in range(25,27):
 		header_str+=template_file_list[i].decode()
+	notes_list = []
+	bypass_notes = 0
+	if len(notes_tb.get("1.0","end")) == 1:
+		bypass_notes = 1
+	if bypass_notes == 0:
+		if notes_tb.get("end-1c","end") == "\n":
+			notes_list = notes_tb.get("1.0","end").split("\n")
+		elif notes_tb.get("end-1c","end") == "\r\n":
+			notes_list = notes_tb.get("1.0","end").split("\r\n")
+		for line in notes_list:
+			header_str += "* " + line + "\r\n"
+	header_str+=template_file_list[25].decode()
 	return header_str
 
 
@@ -380,13 +451,20 @@ def display_msg(input, color,type):
 		display = tk.Label(msg_panel, text = input, fg=color)
 		msg = tk.Label(msg_panel,text = "Uploaded file:", fg=color)
 		msg.pack()
+		window.geometry("490x535")
+		window.minsize(490,535)
 	elif type== "converted":
 		display = tk.Label(msg_panel, text = input, fg=color)
-		msg = tk.Label(msg_panel,text = "Converted \'.LIB\' file to:", fg=color)
+		msg = tk.Label(msg_panel,text = "Converted \'.LIB\' file to location:", fg=color)
 		msg.pack()
+		window.geometry("490x520")
+		window.minsize(490,520)
 	else:
 		display = tk.Label(msg_panel, text = input, fg=color)
+		window.geometry("490x520")
+		window.minsize(490,520)
 	display.pack()
+	
 
 def reset():
 	#print("reset")
@@ -398,6 +476,7 @@ def reset():
 	evm_order_entry.insert(0,"")
 	evm_guide_entry.insert(0,"")
 	model_vsn_entry.insert(0,"")
+	subckts_str.set("")
 
 if __name__ == "__main__":
 	main()
